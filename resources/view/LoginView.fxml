@@ -1,52 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!-- Import komponen JavaFX yang digunakan -->
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
+<!-- Root container: StackPane dengan warna gradasi -->
 <StackPane xmlns="http://javafx.com/javafx"
            xmlns:fx="http://javafx.com/fxml"
            fx:controller="view.LoginController"
            style="-fx-background-color: linear-gradient(to bottom right, #D72638, #B5651D);"
            prefWidth="400" prefHeight="600">
 
-    <!-- Form Container -->
+    <!-- Container utama form login -->
     <VBox spacing="20" alignment="CENTER"
-          style="-fx-background-color: #F8F8F0; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10,0,0,4);"
+          style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;
+                 -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10,0,0,4);"
           maxWidth="300" maxHeight="400">
+
+        <!-- Memberikan jarak/padding di dalam VBox -->
         <padding>
             <Insets top="20" right="20" bottom="20" left="20"/>
         </padding>
 
-        <!-- Logo Placeholder -->
-        Ganti src nanti dengan file lokal atau URL
-        <ImageView fx:id="logoImage" fitHeight="80" fitWidth="80" pickOnBounds="true" preserveRatio="true">
+        <!-- Logo aplikasi -->
+        <ImageView fx:id="logoImage" fitHeight="150" fitWidth="150" pickOnBounds="true" preserveRatio="true">
             <image>
+                <!-- Gambar logo, pastikan path sudah sesuai -->
                 <Image url="@/images/Logo.jpg"/>
             </image>
         </ImageView>
-        <Label text="RAMEN HOUSE"
-               style="-fx-font-size: 18; -fx-text-fill: #999999;"/>
 
-        <!-- Input Nama -->
+        <!-- Input field untuk Nama -->
         <VBox spacing="5">
             <Label text="Nama" style="-fx-font-weight: bold;"/>
             <TextField fx:id="txtNama" promptText="Masukkan Nama Anda"/>
         </VBox>
 
-        <!-- Input Nomor HP -->
+        <!-- Input field untuk Nomor HP -->
         <VBox spacing="5">
             <Label text="Nomor HP" style="-fx-font-weight: bold;"/>
             <TextField fx:id="txtNoHP" promptText="Masukkan Nomor HP"/>
         </VBox>
 
-        <!-- Tombol Masuk -->
+        <!-- Tombol untuk masuk/login -->
         <Button fx:id="btnMasuk"
                 text="Masuk"
                 maxWidth="Infinity"
                 style="-fx-background-color: #8B0000; -fx-text-fill: white; -fx-background-radius: 8;"/>
-
     </VBox>
 </StackPane>
