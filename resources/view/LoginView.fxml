@@ -1,52 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!-- Import komponen-komponen JavaFX yang digunakan dalam file FXML ini -->
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 
-<StackPane xmlns="http://javafx.com/javafx"
+<!-- Root container: StackPane yang menjadi elemen utama dari tampilan -->
+<StackPane fx:id="rootPane" xmlns="http://javafx.com/javafx"
            xmlns:fx="http://javafx.com/fxml"
            fx:controller="view.LoginController"
-           style="-fx-background-color: linear-gradient(to bottom right, #D72638, #B5651D);"
-           prefWidth="400" prefHeight="600">
+           style="-fx-background-color: linear-gradient(to bottom right, #D72638, #B5651D);">
 
-    <!-- Form Container -->
-    <VBox spacing="20" alignment="CENTER"
-          style="-fx-background-color: #F8F8F0; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10,0,0,4);"
-          maxWidth="300" maxHeight="400">
+    <!-- VBox utama yang berisi form login -->
+    <VBox fx:id="formContainer"
+          spacing="20" alignment="CENTER"
+          maxWidth="300" maxHeight="400"
+          style="-fx-background-color: #F8F8F0;
+                 -fx-background-radius: 15;
+                 -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10,0,0,4);">
+
+        <!-- Padding isi VBox -->
         <padding>
-            <Insets top="20" right="20" bottom="20" left="20"/>
+            <Insets top="30" right="30" bottom="30" left="30"/>
         </padding>
 
-        <!-- Logo Placeholder -->
-        Ganti src nanti dengan file lokal atau URL
-        <ImageView fx:id="logoImage" fitHeight="80" fitWidth="80" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@/images/Logo.jpg"/>
-            </image>
+        <!-- Logo aplikasi di bagian atas -->
+        <ImageView fitHeight="100" fitWidth="100" preserveRatio="true">
+            <!-- Gambar logo diambil dari folder resources/images -->
+            <Image url="@/images/Logo.jpg"/>
         </ImageView>
+
+        <!-- Label judul aplikasi -->
         <Label text="RAMEN HOUSE"
-               style="-fx-font-size: 18; -fx-text-fill: #999999;"/>
+               style="-fx-font-size: 18px;
+                      -fx-font-weight: bold;
+                      -fx-text-fill: #999999;"/>
 
-        <!-- Input Nama -->
+        <!-- Form input nama -->
         <VBox spacing="5">
+            <!-- Label untuk nama -->
             <Label text="Nama" style="-fx-font-weight: bold;"/>
-            <TextField fx:id="txtNama" promptText="Masukkan Nama Anda"/>
+            <!-- TextField untuk mengisi nama -->
+            <TextField fx:id="txtNama" promptText="Masukkan Nama Anda" />
         </VBox>
 
-        <!-- Input Nomor HP -->
+        <!-- Form input nomor HP -->
         <VBox spacing="5">
+            <!-- Label untuk nomor HP -->
             <Label text="Nomor HP" style="-fx-font-weight: bold;"/>
-            <TextField fx:id="txtNoHP" promptText="Masukkan Nomor HP"/>
+            <!-- TextField untuk mengisi nomor HP -->
+            <TextField fx:id="txtNoHP" promptText="Masukkan Nomor HP" />
         </VBox>
 
-        <!-- Tombol Masuk -->
+        <!-- Tombol untuk melakukan login -->
         <Button fx:id="btnMasuk"
                 text="Masuk"
                 maxWidth="Infinity"
-                style="-fx-background-color: #8B0000; -fx-text-fill: white; -fx-background-radius: 8;"/>
+                style="-fx-background-color: #8B0000;
+                       -fx-text-fill: white;
+                       -fx-background-radius: 8;"/>
 
     </VBox>
 </StackPane>

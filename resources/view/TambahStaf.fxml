@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controller.TambahStafController"
+      spacing="10" alignment="TOP_CENTER"
+      prefWidth="400" prefHeight="600"
+      style="-fx-background-color: white;">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <!-- Header -->
+    <HBox alignment="CENTER_LEFT" spacing="10" style="-fx-background-color: #D72638; -fx-padding: 10 20;">
+        <Label text="←"
+               style="-fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold; -fx-padding: 5 10; -fx-background-color: #8B0000; -fx-background-radius: 5;"
+               onMouseClicked="#handleBack"/>
+        <Label text="Manajemen Akun Staf"
+               style="-fx-font-size: 20px; -fx-text-fill: white; -fx-font-weight: bold;"/>
+    </HBox>
+
+    <!-- Form Input -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <padding><Insets top="5" right="30" bottom="5" left="30"/></padding>
+        <Label text="Nama Karyawan:" minWidth="100"/>
+        <TextField fx:id="tfNama" promptText="Masukkan nama" HBox.hgrow="ALWAYS"/>
+    </HBox>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <padding><Insets top="5" right="30" bottom="5" left="30"/></padding>
+        <Label text="No HP:" minWidth="100"/>
+        <TextField fx:id="tfNoHP" promptText="Masukkan nomor HP" HBox.hgrow="ALWAYS"/>
+    </HBox>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <padding><Insets top="5" right="30" bottom="5" left="30"/></padding>
+        <Label text="Role:" minWidth="100"/>
+        <ComboBox fx:id="cbRole" promptText="Pilih Role" maxWidth="Infinity">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="staf_dapur"/>
+                    <String fx:value="manajer"/>
+                </FXCollections>
+            </items>
+        </ComboBox>
+
+    </HBox>
+
+        <HBox spacing="10" alignment="CENTER">
+            <Button fx:id="btnSimpan" text="Simpan"
+                    style="-fx-background-color: #008000; -fx-text-fill: white; -fx-font-size: 14px; -fx-pref-width: 200px; -fx-pref-height: 15px;" />
+            <Button fx:id="btnClear" text="Bersihkan"
+                    style="-fx-background-color: #D72638; -fx-text-fill: white; -fx-font-size: 14px; -fx-pref-width: 200px; -fx-pref-height: 15px;" />
+        </HBox>
+</VBox>

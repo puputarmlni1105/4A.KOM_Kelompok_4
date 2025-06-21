@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+
+<VBox spacing="15" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controller.TambahMenuController"
+      alignment="TOP_CENTER"
+      style="-fx-background-color: #FFFFFF;"
+      prefWidth="400" prefHeight="600">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <!-- Header -->
+    <HBox alignment="CENTER_LEFT" spacing="10" style="-fx-background-color: #D72638; -fx-padding: 10 20;">
+        <Label fx:id="logoLabel"
+               text="←"
+               style="-fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold; -fx-padding: 5 10; -fx-background-color: #8B0000; -fx-background-radius: 5;"
+               onMouseClicked="#handleLogoClick"/>
+        <Label text="Tambah Menu"
+               style="-fx-font-size: 20px; -fx-text-fill: white; -fx-font-weight: bold;"/>
+    </HBox>
+
+    <!-- Nama Menu -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <padding><Insets top="5" right="30" bottom="5" left="30"/></padding>
+        <Label text="Nama Menu:" minWidth="100"/>
+        <TextField fx:id="tfNamaMenu" promptText="Masukkan nama menu" HBox.hgrow="ALWAYS"/>
+    </HBox>
+
+    <!-- Jenis Menu -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <padding><Insets top="5" right="30" bottom="5" left="30"/></padding>
+        <Label text="Jenis Menu:" minWidth="100"/>
+        <TextField fx:id="tfJenisMenu" promptText="Masukkan jenis menu" HBox.hgrow="ALWAYS"/>
+    </HBox>
+
+    <!-- Harga -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <padding><Insets top="5" right="30" bottom="5" left="30"/></padding>
+        <Label text="Harga:" minWidth="100"/>
+        <TextField fx:id="tfHarga" promptText="Masukkan harga" HBox.hgrow="ALWAYS"/>
+    </HBox>
+
+    <!-- Stok -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <padding><Insets top="5" right="30" bottom="5" left="30"/></padding>
+        <Label text="Stok:" minWidth="100"/>
+        <TextField fx:id="tfStok" promptText="Masukkan stok" HBox.hgrow="ALWAYS"/>
+    </HBox>
+
+    <!-- Status -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <padding><Insets top="5" right="30" bottom="5" left="30"/></padding>
+        <Label text="Status:" minWidth="100"/>
+        <TextField fx:id="tfStatus" editable="false" promptText="Otomatis berdasarkan stok" HBox.hgrow="ALWAYS"/>
+    </HBox>
+
+    <!-- Gambar -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <padding><Insets top="5" right="30" bottom="5" left="30"/></padding>
+        <Label text="Gambar:" minWidth="100"/>
+        <Button text="Pilih Gambar" onAction="#pilihGambar" HBox.hgrow="ALWAYS"/>
+        <Label fx:id="labelNamaGambar" text="Belum ada gambar" HBox.hgrow="ALWAYS"/>
+    </HBox>
+
+    <!-- Tombol Aksi -->
+    <HBox spacing="20" alignment="CENTER">
+        <Button text="Simpan" onAction="#simpanMenu"
+                style="-fx-background-color: #008000; -fx-text-fill: white; -fx-font-size: 14px; -fx-pref-width: 200px; -fx-pref-height: 15px;" />
+
+        <Button text="Bersihkan" onAction="#bersihkan"
+                style="-fx-background-color: #D72638; -fx-text-fill: white; -fx-font-size: 14px; -fx-pref-width: 200px; -fx-pref-height: 15px;" />
+    </HBox>
+
+</VBox>

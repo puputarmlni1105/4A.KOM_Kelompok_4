@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controller.ManajemenAkunStafController"
+      alignment="TOP_CENTER"
+      spacing="10"
+      prefWidth="400" prefHeight="600"
+      style="-fx-background-color: #FFFFFF;">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <!-- Header dengan panah dan teks "Manajemen Akun Staf" -->
+    <HBox alignment="CENTER_LEFT" spacing="10" style="-fx-background-color: #D72638; -fx-padding: 10 20;">
+        <Label fx:id="logoLabel"
+               text="←"
+               style="-fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold; -fx-padding: 5 10; -fx-background-color: #8B0000; -fx-background-radius: 5;"
+               onMouseClicked="#handleLogoClick"/>
+        <Label text="Manajemen Akun Staf"
+               style="-fx-font-size: 20px; -fx-text-fill: white; -fx-font-weight: bold;"/>
+    </HBox>
+
+
+    <!-- Tombol Tambah Staf -->
+    <HBox alignment="CENTER_LEFT" style="-fx-padding: 10;">
+        <Label text="+ Tambah Staf"
+               onMouseClicked="#handleTambahStafClick"
+               style="-fx-background-color: #008000; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 16; -fx-background-radius: 5; -fx-cursor: hand;"/>
+    </HBox>
+
+
+    <ScrollPane fitToWidth="true" style="-fx-background-color: transparent; -fx-border-color: transparent;" hbarPolicy="NEVER" vbarPolicy="NEVER">
+        <VBox fx:id="stafContainer" spacing="15">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <!-- Staf akan ditambahkan dari controller -->
+        </VBox>
+    </ScrollPane>
+
+</VBox>

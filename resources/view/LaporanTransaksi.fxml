@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<VBox spacing="15" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controller.LaporanTransaksiController"
+      alignment="TOP_CENTER"
+      style="-fx-background-color: #FFFFFF;"
+      prefWidth="400" prefHeight="600">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <!-- Header -->
+    <HBox alignment="CENTER_LEFT" spacing="10" style="-fx-background-color: #D72638; -fx-padding: 10 20;">
+        <Label fx:id="logoLabel"
+               text="←"
+               style="-fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold; -fx-padding: 5 10; -fx-background-color: #8B0000; -fx-background-radius: 5; -fx-cursor: hand;"
+               onMouseClicked="#handleLogoClick"/>
+        <Label text="Laporan Transaksi"
+               style="-fx-font-size: 20px; -fx-text-fill: white; -fx-font-weight: bold;"/>
+    </HBox>
+
+    <!-- Filter Tanggal -->
+    <VBox spacing="10" alignment="CENTER">
+        <Label text="Dari:"/>
+        <DatePicker fx:id="startDatePicker"/>
+        <Label text="Sampai:"/>
+        <DatePicker fx:id="endDatePicker"/>
+    </VBox>
+
+    <!-- Tombol Cari dan Export -->
+    <HBox spacing="10" alignment="CENTER">
+        <Button onAction="#handleSearch" style="-fx-background-color: transparent;">
+            <graphic>
+                <ImageView fitWidth="25" fitHeight="25" preserveRatio="true">
+                    <image>
+                        <Image url="@/images/icon/cari.png"/>
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+        <Button onAction="#handleExportPDF" style="-fx-background-color: transparent;">
+            <graphic>
+                <ImageView fitWidth="25" fitHeight="25" preserveRatio="true">
+                    <image>
+                        <Image url="@/images/icon/print.png"/>
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+    </HBox>
+
+    <!-- Scrollable Tabel Transaksi -->
+    <ScrollPane fitToWidth="true" style="-fx-background-color: transparent; -fx-border-color: transparent;" hbarPolicy="NEVER" vbarPolicy="NEVER">
+        <VBox spacing="10">
+            <TableView fx:id="transaksiTable" prefHeight="350">
+                <columns>
+                    <TableColumn text="Tanggal" fx:id="colTanggal"/>
+                    <TableColumn text="No. Pesanan" fx:id="colPesanan"/>
+                    <TableColumn text="Detail" fx:id="colDetail"/>
+                    <TableColumn text="Total" fx:id="colTotal"/>
+                    <TableColumn text="Meja" fx:id="colMeja"/>
+                    <TableColumn text="Aksi" fx:id="colAksi"/>
+                </columns>
+            </TableView>
+
+            <!-- Tabel Detail Transaksi (Ditampilkan saat baris diklik, diatur dari controller) -->
+            <TableView fx:id="detailTable" visible="false" managed="false">
+                <columns>
+                    <TableColumn text="Nama Menu" fx:id="colNamaMenu"/>
+                    <TableColumn text="Jumlah" fx:id="colJumlah"/>
+                    <TableColumn text="Harga Satuan" fx:id="colHarga"/>
+                    <TableColumn text="Subtotal" fx:id="colSubtotal"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </ScrollPane>
+</VBox>
