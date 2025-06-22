@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.control.Button?>
+<VBox spacing="10" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controller.MenuPelangganController"
+      alignment="TOP_CENTER"
+      style="-fx-background-color: #FFFFFF;"
+      prefWidth="400" prefHeight="600">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <!-- Header dengan tombol kembali -->
+    <HBox alignment="CENTER_LEFT" spacing="10" style="-fx-background-color: #D72638; -fx-padding: 10 20;">
+        <Label fx:id="logoLabel"
+               text="←"
+               style="-fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold; -fx-padding: 5 10; -fx-background-color: #8B0000; -fx-background-radius: 5;"
+               onMouseClicked="#handleLogoClick"/>
+        <Label text="Menu Ramen House"
+               style="-fx-font-size: 20px; -fx-text-fill: white; -fx-font-weight: bold;"/>
+
+        <ImageView fx:id="pesanan" onMouseClicked="#handlePesananClick" fitWidth="24" fitHeight="24">
+            <image>
+                <Image url="@../images/icon/riwayat.png" />
+            </image>
+        </ImageView>
+    </HBox>
+
+    <!-- FILTER KATEGORI -->
+    <HBox spacing="10" alignment="CENTER" style="-fx-padding: 10 0;">
+        <Button text="Semua Menu" fx:id="btnFilterAll" onAction="#filterAll" style="-fx-font-weight: bold;"/>
+        <Button text="Ramen" fx:id="btnFilterRamen" onAction="#filterRamen" style="-fx-font-weight: bold;"/>
+        <Button text="Minuman" fx:id="btnFilterMinuman" onAction="#filterMinuman" style="-fx-font-weight: bold;"/>
+    </HBox>
+
+    <!-- Daftar Menu -->
+    <ScrollPane fitToWidth="true" style="-fx-background-color: transparent; -fx-border-color: transparent;" hbarPolicy="NEVER" vbarPolicy="NEVER">
+        <VBox fx:id="menuContainer" spacing="15">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+        </VBox>
+    </ScrollPane>
+
+    <!-- Cart Summary (item + total) -->
+    <HBox fx:id="cartSummaryBox"
+          alignment="CENTER"
+          spacing="10"
+          style="-fx-background-color: #f5f5f5; -fx-border-color: #ccc; -fx-border-radius: 10; -fx-padding: 10;"
+          layoutY="530"
+          prefHeight="60"
+          prefWidth="360">
+
+        <ImageView fx:id="cartIcon" fitWidth="24" fitHeight="24">
+            <image>
+                <Image url="@../images/icon/keranjang.png" />
+            </image>
+        </ImageView>
+
+        <Label fx:id="itemCountLabel" text="0 item" style="-fx-font-weight: bold;"/>
+        <Label fx:id="totalPriceLabel" text="Rp 0" style="-fx-text-fill: #4CAF50; -fx-font-weight: bold; -fx-font-size: 14px;"/>
+
+        <!-- Spacer -->
+        <HBox HBox.hgrow="ALWAYS"/>
+
+        <Label text="Lihat"
+               onMouseClicked="#handleCartClick"
+               style="-fx-background-color: #D72638; -fx-text-fill: white; -fx-padding: 5 15; -fx-background-radius: 10; -fx-font-weight: bold;"/>
+    </HBox>
+
+
+</VBox>
